@@ -1,0 +1,19 @@
+title: Demo
+description: test
+
+plugins:
+  - jekyll-admin
+
+baseurl: ""
+
+markdown: kramdown
+collections:
+  products:
+    output: true
+    permalink: /san-pham/:path/
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  startings: [head, body]

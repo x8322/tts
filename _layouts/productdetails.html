@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<div class="product-details">
+  <img src="{{ page.image }}" alt="{{ page.name }}" class="thumbnail"/>
+  <div class="product-description">
+    <p>{{ page.name }}</p>
+
+    <p>
+      {{ page.content }}
+    </p>
+  </div>
+</div>
+<div class="product-reviews">
+  {% assign reviews = site.data.reviews | where:'product',page.slug %}
+  {% assign reviewCount = reviews | size %}
+  {% assign sum = 0 %}
+  {% for review in reviews %}
+    {% assign sum = sum | plus: review.review %}
+  {% endfor %}
+
+  <h3>Reviews
+    {% if reviewCount > 0 %}
+      {% assign sum = sum | divided_by:reviewCount %}
+      (Average: {{ sum | round: 1 }})
+    {% endif %}
+  </h3>
+  <ul>
+    {% for review in reviews %}
+    <li>
+      <b>{{ review.review }}/5</b>  by <b>{{ review.name }}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i>
+      {% if review.message %}
+      <p>
+        {{review.message}}
+      </p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,6 +1,7 @@
-#general
-node_modules
-.sass-cache
-.idea
+_site/
+.sass-cache/
+.jekyll-metadata
 .DS_Store
+node_modules
+.idea
 npm-debug.log
