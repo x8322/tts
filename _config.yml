@@ -8,9 +8,9 @@ baseurl: ""
 
 markdown: kramdown
 collections:
-  products:
+  books:
     output: true
-    permalink: /san-pham/:path/
+    permalink: /sach/:path/
 compress_html:
   clippings: all
   comments: all
