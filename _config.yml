@@ -2,7 +2,7 @@ title: Demo
 description: test
 
 plugins:
-  - jekyll-admin
+  - jekyll-seo-tag
 
 baseurl: ""
 
