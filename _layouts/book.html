@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<div id="tt-pageContent">
+	<div class="container-indent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-4 hidden-xs">
+					<div class="tt-product-single-img">
+						<div>
+							<img class="zoom-product" src='{{page.image}}' data-zoom-image="images/product/product-41.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-8">
+					<div class="tt-product-single-info">
+						<h1 class="tt-title">{{page.name}}</h1>
+						<div class="tt-price">
+							Tác giả: 
+							<span class="new-price">{{page.author}}</span>
+						</div>
+						<div class="tt-wrapper">
+							{{page.description | raw}}
+						</div>
+						<div class="tt-wrapper">
+							<a href="#" class="btn btn-primary"><i class="icon-f-39"></i>EPub</a> &nbsp;
+							<a href="#" class="btn btn-danger"><i class="icon-f-39"></i>EPub</a> &nbsp;
+							<a href="#" class="btn btn-success"><i class="icon-f-39"></i>EPub</a> &nbsp;
+							<a href="#" class="btn btn-warning"><i class="icon-f-39"></i>Đọc Online</a>
+						</div>
+						<div class="tt-wrapper">
+							<ul class="tt-list-btn">
+								<li><a class="btn-link" href="#"><i class="icon-n-072"></i>Yêu thích</a></li>
+							</ul>
+						</div>
+						<div class="tt-wrapper">
+							<div class="tt-add-info">
+								<ul>
+									<li><span>Thể loại:</span> {{page.category}}</li>
+									<li><span>Tag:</span>
+										{% for tag in page.tags %}
+										  <a href="#">{{tag}}</a>
+										{% endfor %}
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="tt-collapse-block">
+							<div class="tt-item active">
+								<div class="tt-collapse-content">
+									{{page.content}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="epub" class="row">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+  $(function(){
+  	var book = ePub("{{page.epub}}");
+  var rendition = book.renderTo("epub");
+  rendition.display();
+  });
+</script>
